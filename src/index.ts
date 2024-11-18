@@ -2,6 +2,7 @@ import express,{ Express } from "express";
 import { UtilApplication } from "./utils";
 import cors from "cors";
 import router from "./routes/route";
+import "./config/container";
 
 const app:Express = express();
 app.use(express.json()); 
