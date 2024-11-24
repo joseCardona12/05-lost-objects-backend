@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import { configDotenv } from "dotenv";
-import { RoleModel, UserModel } from "../models";
+import { LostPointModel, ObjectModel, RoleModel, StateObjectModel, TypeObjectModel, UserModel } from "../models";
 
 configDotenv();
 const sequelize:Sequelize = new Sequelize({
@@ -10,7 +10,7 @@ const sequelize:Sequelize = new Sequelize({
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    models: [UserModel,RoleModel]
+    models: [UserModel,RoleModel,ObjectModel,StateObjectModel,TypeObjectModel, LostPointModel]
 });
 
 export default sequelize;

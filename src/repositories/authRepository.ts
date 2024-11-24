@@ -23,4 +23,15 @@ export default class AuthRepository implements PAuth {
             return UtilApplication.returnMessage("register", "AuthRepository");
         }
     }
+
+    public async foundEmail(email:string):Promise<IUserResponse | {message:string} | null>{
+        try{
+            return await UserModel.findOne({where: {
+                email
+            }})
+
+        }catch(error:unknown){
+            return UtilApplication.returnMessage("foundEmail", "AuthRepository")
+        }
+    }
 }

@@ -13,6 +13,8 @@ export default class AuthService implements PAuth{
     }
 
     public async register(user: IUserRequest): Promise<IUserResponse | { message: string; } | null> {
+        const userFound = await this.authRepository.foundEmail(user.email);
+        if(userFound)return userFound;
         const data = await this.authRepository.register(user);
         return data;
     }
